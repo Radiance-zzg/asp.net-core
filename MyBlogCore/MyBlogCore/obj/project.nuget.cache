@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "DUlYjcQG030EswTwY81FLTA9uFUn7gejPJ589Mfi0Rm3Iljvu1Q2kgQfKd04PL5XP1JoPw4KvCi7EIuMfSuDPw==",
+  "success": true,
+  "projectFilePath": "D:\\BlogCore\\MyBlogCore\\MyBlogCore\\MyBlogCore.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Zzg\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.12\\microsoft.netcore.app.host.win-x64.5.0.12.nupkg.sha512"
+  ],
+  "logs": []
+}
