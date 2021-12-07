@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Core.Model", "Blog.Cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Core.Extensions", "Blog.Core.Expansion\Blog.Core.Extensions.csproj", "{338DB824-7EF0-47CF-A944-E7AC5B9930E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog,Core.Common", "Blog,Core.Common\Blog,Core.Common.csproj", "{DCD5CBB9-E4F4-4CC9-9940-1499ACBAAB17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Core.Common", "Blog,Core.Common\Blog.Core.Common.csproj", "{DCD5CBB9-E4F4-4CC9-9940-1499ACBAAB17}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
