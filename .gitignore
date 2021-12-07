@@ -4,3 +4,17 @@
 
 /MyBlogCore/MyBlogCore/bin/Debug/net5.0
 /MyBlogCore/.vs/MyBlogCore/DesignTimeBuild
+/MyBlogCore/Blog,Core.Common/obj
+/MyBlogCore/Blog.Core.Expansion/bin/Debug/net5.0
+/MyBlogCore/Blog.Core.Expansion/obj/Debug/net5.0
+/MyBlogCore/Blog.Core.Expansion/obj
+/MyBlogCore/Blog.Core.Model/bin/Debug/net5.0
+/MyBlogCore/Blog.Core.Model/obj/Debug/net5.0
+/MyBlogCore/Blog.Core.Model/obj
+/MyBlogCore/Blog.Core.Repository/bin/Debug/net5.0
+/MyBlogCore/Blog.Core.Repository/obj/Debug/net5.0
+/MyBlogCore/Blog.Core.Repository/obj
+/MyBlogCore/MyBlogCore/obj/Debug/net5.0/ref
+/MyBlogCore/MyBlogCore/obj/Debug/net5.0/staticwebassets
+/MyBlogCore/MyBlogCore/obj
+/MyBlogCore/Blog,Core.Common/bin/Debug/net5.0
