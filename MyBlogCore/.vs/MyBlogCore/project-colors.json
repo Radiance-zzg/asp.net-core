@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "7dbf9b60-3460-4a49-9e73-e70de180dac1": {
+      "ProjectGuid": "7dbf9b60-3460-4a49-9e73-e70de180dac1",
+      "DisplayName": "MyBlogCore",
+      "ColorIndex": 0
+    },
+    "bc237f74-3ac0-4518-a47a-27ccb1ee39fb": {
+      "ProjectGuid": "bc237f74-3ac0-4518-a47a-27ccb1ee39fb",
+      "DisplayName": "Blog.Core.Repository",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
