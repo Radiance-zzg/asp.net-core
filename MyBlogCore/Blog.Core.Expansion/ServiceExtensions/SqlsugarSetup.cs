@@ -1,4 +1,4 @@
-﻿using Blog_Core.Common.Configuration;
+﻿
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SqlSugar;
@@ -9,18 +9,14 @@ namespace Blog.Core.Extensions.ServiceExtensions
 {
     public static class SqlsugarSetup
     {
-        //private readonly IConfiguration _configuration;
-        //public SqlsugarSetup(IConfiguration configuration)
-        //{
-        //    _configuration = configuration;
-        //}
-     
-        public static void AddSqlsugarSetup(this IServiceCollection services)
+       
+
+        public static void AddSqlsugarSetup(this IServiceCollection services, IConfiguration configuration)
         {
             SqlSugarScope sqlSugar = new SqlSugarScope(new ConnectionConfig()
             {
                 DbType = SqlSugar.DbType.SqlServer,
-                ConnectionString = CommConfiguration.GetConnetionStr("SqlServer"),
+                ConnectionString = configuration.GetConnectionString("SqlServer"),
                 IsAutoCloseConnection = true,
             },
                 db =>

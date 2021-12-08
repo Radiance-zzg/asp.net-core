@@ -18,3 +18,5 @@
 /MyBlogCore/MyBlogCore/obj/Debug/net5.0/staticwebassets
 /MyBlogCore/MyBlogCore/obj
 /MyBlogCore/Blog,Core.Common/bin/Debug/net5.0
+/MyBlogCore/Blog.Core.Entities/obj
+/MyBlogCore/Blog.Core.Services/obj

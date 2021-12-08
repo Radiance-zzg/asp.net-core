@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Core.Extensions", "Blo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Core.Common", "Blog,Core.Common\Blog.Core.Common.csproj", "{DCD5CBB9-E4F4-4CC9-9940-1499ACBAAB17}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Core.Entities", "Blog.Core.Entities\Blog.Core.Entities.csproj", "{ED7B9C08-8906-4680-A8A6-878631B21D1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Core.Services", "Blog.Core.Services\Blog.Core.Services.csproj", "{13E266C9-BAC8-457A-B95E-B47B9EC300D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{DCD5CBB9-E4F4-4CC9-9940-1499ACBAAB17}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DCD5CBB9-E4F4-4CC9-9940-1499ACBAAB17}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DCD5CBB9-E4F4-4CC9-9940-1499ACBAAB17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED7B9C08-8906-4680-A8A6-878631B21D1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED7B9C08-8906-4680-A8A6-878631B21D1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED7B9C08-8906-4680-A8A6-878631B21D1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED7B9C08-8906-4680-A8A6-878631B21D1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13E266C9-BAC8-457A-B95E-B47B9EC300D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13E266C9-BAC8-457A-B95E-B47B9EC300D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13E266C9-BAC8-457A-B95E-B47B9EC300D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13E266C9-BAC8-457A-B95E-B47B9EC300D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

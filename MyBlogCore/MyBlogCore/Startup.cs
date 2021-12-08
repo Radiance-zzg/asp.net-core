@@ -1,5 +1,4 @@
 using Blog.Core.Extensions.ServiceExtensions;
-using Blog_Core.Common.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -18,7 +17,7 @@ namespace MyBlogCore
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            CommConfiguration._configuration = configuration;
+
         }
 
         public IConfiguration Configuration { get; }
@@ -26,19 +25,9 @@ namespace MyBlogCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            try
-            {
 
-              
-                services.AddSqlsugarSetup();
-                services.AddRazorPages();
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-
+            services.AddSqlsugarSetup(Configuration);
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

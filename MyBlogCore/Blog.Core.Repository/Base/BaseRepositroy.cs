@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace Blog.Core.Repository.Base
 {
-    public class Repositroy<TEntiy> : IBaseRepository<TEntiy> where TEntiy : class, new()
+    public class BaseRepositroy<TEntiy> : IBaseRepository<TEntiy> where TEntiy : class, new()
     {
 
         private readonly IUnitOfWork _unitOfWork;
 
+       
 
-
-        public Repositroy(IUnitOfWork unitOfWork)
+        public BaseRepositroy(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
