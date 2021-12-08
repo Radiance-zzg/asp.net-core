@@ -1,4 +1,6 @@
 ﻿
+using Blog.Core.Repository;
+using Blog.Core.Repository.UnitOfWork;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SqlSugar;
@@ -9,7 +11,7 @@ namespace Blog.Core.Extensions.ServiceExtensions
 {
     public static class SqlsugarSetup
     {
-       
+
 
         public static void AddSqlsugarSetup(this IServiceCollection services, IConfiguration configuration)
         {
@@ -28,6 +30,11 @@ namespace Blog.Core.Extensions.ServiceExtensions
                         };
                 });
             services.AddSingleton<ISqlSugarClient>(sqlSugar);//这边是SqlSugarScope用AddSingleton
+        }
+        public static void AddUnitOfWorkSetup(this IServiceCollection services)
+        {
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
         }
     }
 }

@@ -1,3 +1,4 @@
+using Autofac;
 using Blog.Core.Extensions.ServiceExtensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -5,6 +6,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MyBlogCore.AutofacConfig;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,9 +29,14 @@ namespace MyBlogCore
         {
 
             services.AddSqlsugarSetup(Configuration);
+            services.AddControllers().AddControllersAsServices();
+            //services.AddUnitOfWorkSetup();
             services.AddRazorPages();
         }
-
+        public void ConfigureContainer(ContainerBuilder containerBuilder)
+        {
+            containerBuilder.RegisterModule<ConfigureAutofac>();
+        }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {

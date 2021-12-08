@@ -20,3 +20,5 @@
 /MyBlogCore/Blog,Core.Common/bin/Debug/net5.0
 /MyBlogCore/Blog.Core.Entities/obj
 /MyBlogCore/Blog.Core.Services/obj
+/MyBlogCore/Blog.Core.Entities/bin/Debug/net5.0
+/MyBlogCore/Blog.Core.Services/bin/Debug/net5.0

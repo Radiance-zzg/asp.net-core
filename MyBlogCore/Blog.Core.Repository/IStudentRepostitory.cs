@@ -8,5 +8,7 @@ namespace Blog.Core.Repository
 {
     internal interface IStudentRepostitory
     {
+        public string GetTest();
+        
     }
 }

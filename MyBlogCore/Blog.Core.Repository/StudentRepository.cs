@@ -11,9 +11,15 @@ namespace Blog.Core.Repository
     public class StudentRepository : BaseRepositroy<Student>, IStudentRepostitory
     {
 
-        public StudentRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
-        {
+        //public StudentRepository(IUnitOfWork unitOfWork) : base(unitOfWork)
+        //{
 
+        //}
+
+        public string GetTest()
+        {
+         
+            return "成功";
         }
     }
 }

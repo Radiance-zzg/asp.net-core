@@ -12,14 +12,14 @@ namespace Blog.Core.Repository.Base
     public class BaseRepositroy<TEntiy> : IBaseRepository<TEntiy> where TEntiy : class, new()
     {
 
-        private readonly IUnitOfWork _unitOfWork;
+        private IUnitOfWork _unitOfWork { get; set; }
 
-       
 
-        public BaseRepositroy(IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
-        }
+
+        //public BaseRepositroy(IUnitOfWork unitOfWork)
+        //{
+        //    _unitOfWork = unitOfWork;
+        //}
 
         public SqlSugarScope Db => _unitOfWork.GetDB();
         /// <summary>
