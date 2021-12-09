@@ -44,7 +44,7 @@ namespace MyBlogCore
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(optins => { optins.  });
+                //app.UseSwaggerUI(optins => { optins.  });
             }
             else
             {
