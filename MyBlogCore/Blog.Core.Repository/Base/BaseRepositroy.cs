@@ -12,7 +12,7 @@ namespace Blog.Core.Repository.Base
     public class BaseRepositroy<TEntiy> : IBaseRepository<TEntiy> where TEntiy : class, new()
     {
 
-        private IUnitOfWork _unitOfWork { get; set; }
+        public IUnitOfWork _unitOfWork { get; set; }
 
 
 

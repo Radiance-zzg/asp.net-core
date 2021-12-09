@@ -11,6 +11,7 @@ namespace MyBlogCore.AutofacConfig
     {
         protected override void Load(ContainerBuilder builder)
         {
+            Assembly.GetExecutingAssembly();
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().PropertiesAutowired();
             builder.RegisterAssemblyTypes(GetAssemblyByName("Blog.Core.Repository"))
                    .Where(a => a.Name.EndsWith("Repository"))
@@ -20,9 +21,10 @@ namespace MyBlogCore.AutofacConfig
                 .Where(a => a.Name.EndsWith("Service"))
                 .AsSelf().AsImplementedInterfaces().PropertiesAutowired().InstancePerLifetimeScope();
             var controllerBaseType = typeof(ControllerBase);
-            builder.RegisterAssemblyTypes(typeof(Program).Assembly)
+            builder.RegisterAssemblyTypes(typeof(Program).Assembly)             
                 .Where(t => controllerBaseType.IsAssignableFrom(t) && t != controllerBaseType)
                 .PropertiesAutowired();
+            
         }
         /// <summary>
         /// 根据程序集名称获取程序集

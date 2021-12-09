@@ -30,7 +30,7 @@ namespace MyBlogCore
 
             services.AddSqlsugarSetup(Configuration);
             services.AddControllers().AddControllersAsServices();
-            //services.AddUnitOfWorkSetup();
+            services.AddSwaggerGen();
             services.AddRazorPages();
         }
         public void ConfigureContainer(ContainerBuilder containerBuilder)
@@ -43,6 +43,8 @@ namespace MyBlogCore
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(optins => { optins.  });
             }
             else
             {
@@ -58,16 +60,20 @@ namespace MyBlogCore
 
             app.UseAuthorization();
 
+            //app.UseEndpoints(endpoints =>
+            //{
+            //    //endpoints.MapRazorPages();
+            //    endpoints.MapControllerRoute(
+            //       name: "default-api",
+            //       pattern: "api/{controller=Home}/{action=Index}/{id?}");
+
+            //    endpoints.MapControllerRoute(
+            //        name: "default",
+            //        pattern: "{controller=Home}/{action=Index}/{id?}");
+            //});
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapRazorPages();
-                endpoints.MapControllerRoute(
-                   name: "default-api",
-                   pattern: "api/{controller=Home}/{action=Index}/{id?}");
-
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers();
             });
         }
     }

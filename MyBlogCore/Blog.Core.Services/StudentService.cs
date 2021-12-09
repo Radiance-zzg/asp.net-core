@@ -11,7 +11,7 @@ namespace Blog.Core.Services
 {
     public class StudentService : BaseService<Student>, IStudentService
     {
-        public  StudentRepository studentRepostitory { get; set; }
+        public StudentRepository studentRepostitory { get; set; }
         public string GetTest()
         {
             var resul = studentRepostitory.AddEntity(new Student { StudentName = "SqlSuger", IDCard = "test", UserPic = "test" });
