@@ -10,7 +10,42 @@
       "ProjectGuid": "bc237f74-3ac0-4518-a47a-27ccb1ee39fb",
       "DisplayName": "Blog.Core.Repository",
       "ColorIndex": 1
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "杂项文件",
+      "ColorIndex": -1
+    },
+    "b26124c9-a891-44aa-8f68-3873868ff175": {
+      "ProjectGuid": "b26124c9-a891-44aa-8f68-3873868ff175",
+      "DisplayName": "Blog.Core.Model",
+      "ColorIndex": 2
+    },
+    "338db824-7ef0-47cf-a944-e7ac5b9930e1": {
+      "ProjectGuid": "338db824-7ef0-47cf-a944-e7ac5b9930e1",
+      "DisplayName": "Blog.Core.Extensions",
+      "ColorIndex": 3
+    },
+    "dcd5cbb9-e4f4-4cc9-9940-1499acbaab17": {
+      "ProjectGuid": "dcd5cbb9-e4f4-4cc9-9940-1499acbaab17",
+      "DisplayName": "Blog.Core.Common",
+      "ColorIndex": 4
+    },
+    "1d8970c4-c0df-4fca-9038-962953783113": {
+      "ProjectGuid": "1d8970c4-c0df-4fca-9038-962953783113",
+      "DisplayName": "WebApplication1",
+      "ColorIndex": 5
+    },
+    "ed7b9c08-8906-4680-a8a6-878631b21d1b": {
+      "ProjectGuid": "ed7b9c08-8906-4680-a8a6-878631b21d1b",
+      "DisplayName": "Blog.Core.Entities",
+      "ColorIndex": 6
+    },
+    "13e266c9-bac8-457a-b95e-b47b9ec300d2": {
+      "ProjectGuid": "13e266c9-bac8-457a-b95e-b47b9ec300d2",
+      "DisplayName": "Blog.Core.Services",
+      "ColorIndex": 7
     }
   },
-  "NextColorIndex": 2
+  "NextColorIndex": 8
 }

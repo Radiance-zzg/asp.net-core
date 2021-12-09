@@ -9,5 +9,6 @@ namespace Blog.Core.Services
     public interface IStudentService
     {
         public string GetTest();
+
     }
 }
