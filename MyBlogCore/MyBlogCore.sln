@@ -1,21 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31912.275
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyBlogCore", "MyBlogCore\MyBlogCore.csproj", "{7DBF9B60-3460-4A49-9E73-E70DE180DAC1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Core.Repository", "Blog.Core.Repository\Blog.Core.Repository.csproj", "{BC237F74-3AC0-4518-A47A-27CCB1EE39FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Core.Model", "Blog.Core.Model\Blog.Core.Model.csproj", "{B26124C9-A891-44AA-8F68-3873868FF175}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Core.Model", "Blog.Core.Model\Blog.Core.Model.csproj", "{B26124C9-A891-44AA-8F68-3873868FF175}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Core.Extensions", "Blog.Core.Expansion\Blog.Core.Extensions.csproj", "{338DB824-7EF0-47CF-A944-E7AC5B9930E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Core.Extensions", "Blog.Core.Expansion\Blog.Core.Extensions.csproj", "{338DB824-7EF0-47CF-A944-E7AC5B9930E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Core.Common", "Blog,Core.Common\Blog.Core.Common.csproj", "{DCD5CBB9-E4F4-4CC9-9940-1499ACBAAB17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Core.Common", "Blog,Core.Common\Blog.Core.Common.csproj", "{DCD5CBB9-E4F4-4CC9-9940-1499ACBAAB17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Core.Entities", "Blog.Core.Entities\Blog.Core.Entities.csproj", "{ED7B9C08-8906-4680-A8A6-878631B21D1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Core.Entities", "Blog.Core.Entities\Blog.Core.Entities.csproj", "{ED7B9C08-8906-4680-A8A6-878631B21D1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Core.Services", "Blog.Core.Services\Blog.Core.Services.csproj", "{13E266C9-BAC8-457A-B95E-B47B9EC300D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Core.Services", "Blog.Core.Services\Blog.Core.Services.csproj", "{13E266C9-BAC8-457A-B95E-B47B9EC300D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Core..JWT.Authorization.Center", "Blog.Core.JWT.Authorization.Center\Blog.Core..JWT.Authorization.Center.csproj", "{F7919199-2CB5-43E7-AE44-EBE680A580FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{13E266C9-BAC8-457A-B95E-B47B9EC300D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13E266C9-BAC8-457A-B95E-B47B9EC300D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13E266C9-BAC8-457A-B95E-B47B9EC300D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7919199-2CB5-43E7-AE44-EBE680A580FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7919199-2CB5-43E7-AE44-EBE680A580FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7919199-2CB5-43E7-AE44-EBE680A580FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7919199-2CB5-43E7-AE44-EBE680A580FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

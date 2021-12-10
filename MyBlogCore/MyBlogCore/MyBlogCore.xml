@@ -16,5 +16,10 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:MyBlogCore.HomeCenterController.Getauth">
+            <summary>
+            测试授权
+            </summary>
+        </member>
     </members>
 </doc>

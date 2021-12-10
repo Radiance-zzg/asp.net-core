@@ -14,6 +14,27 @@
             年龄
             </summary>
         </member>
+        <member name="T:Blog.Core.Model.UserRequestModel">
+            <summary>
+            请求Model
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Model.UserRequestModel.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Model.UserRequestModel.UserPassWord">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:Blog.Core.Model.ViewModel.PageModel`1">
+            <summary>
+            分页实体
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
         <member name="P:Blog.Core.Model.ViewModel.PageModel`1.PageIndex">
             <summary>
             当前页

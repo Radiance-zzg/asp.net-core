@@ -23,3 +23,5 @@
 /MyBlogCore/Blog.Core.Entities/bin/Debug/net5.0
 /MyBlogCore/Blog.Core.Services/bin/Debug/net5.0
 /MyBlogCore/MyBlogCore/net5.0
+/MyBlogCore/Blog.Core.JWT.Authorization.Center/bin/Debug/net5.0
+/MyBlogCore/Blog.Core.JWT.Authorization.Center/obj

@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace Blog.Core.Model.ViewModel
 {
+    /// <summary>
+    /// 分页实体
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     public class PageModel<T>
     {
         /// <summary>

@@ -23,7 +23,7 @@ namespace MyBlogCore
         {
 
             return "QWE0";
-
+        
             //return _studentService.GetTest();
         }
         [HttpPost]

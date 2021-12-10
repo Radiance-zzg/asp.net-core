@@ -1,17 +1,21 @@
 using Autofac;
 using Blog.Core.Extensions.ServiceExtensions;
+using Blog.Core.Model;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MyBlogCore.AutofacConfig;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace MyBlogCore
@@ -19,14 +23,17 @@ namespace MyBlogCore
     public class Startup
     {
         protected IHostEnvironment _hostEnvironment { get; }
+        private JWTTokenOptions _jWTTokenOptions { set; get; }
+        public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration, IHostEnvironment hostEnvironment)
         {
             Configuration = configuration;
             _hostEnvironment = hostEnvironment;
-
+           
+            _jWTTokenOptions = Configuration.GetSection("JWTTokenOptions").Get<JWTTokenOptions>(); ;
         }
 
-        public IConfiguration Configuration { get; }
+
         private readonly string apiName = "MyBlog.Core";
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -41,7 +48,7 @@ namespace MyBlogCore
                     Version = "v1",
                     Title = $"{apiName} 接口文档——dotnetcore 5.0",
                     Description = $"{apiName} HTTP API V1",
-                                                           //Contact = new OpenApiContact { Name = apiName, Email = "2334344234@163.com" },//编辑联系方式
+                    //Contact = new OpenApiContact { Name = apiName, Email = "2334344234@163.com" },//编辑联系方式
                     License = new OpenApiLicense { Name = apiName }//编辑许可证
                 });
                 options.OrderActionsBy(o => o.RelativePath);
@@ -49,6 +56,31 @@ namespace MyBlogCore
                 options.IncludeXmlComments(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Blog.Core.Model.xml"), true);
                 options.IncludeXmlComments(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Blog.Core.Entities.xml"), true);
             });
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                    .AddJwtBearer(options =>
+                    {
+                        options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                        {
+                            ValidateIssuer = true,//验证颁发者
+                            ValidateAudience = true,//验证所有者
+                            ValidateLifetime = true,//验证有效期
+                            ValidateIssuerSigningKey = true,//验证秘钥
+                            ValidAudience = _jWTTokenOptions.Audience,
+                            ValidIssuer = _jWTTokenOptions.IisUer,
+                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jWTTokenOptions.SecretKey)),
+                            //可拓展验证因为是委托
+                            AudienceValidator = (m, s, n) => {
+
+                                return true;
+                            },
+                            //可拓展验证因为是委托
+                            LifetimeValidator = (b, e, s, v) => {
+
+                                return true;
+                            }
+                        };
+                       
+                    });
             services.AddRazorPages();
         }
         public void ConfigureContainer(ContainerBuilder containerBuilder)
@@ -80,7 +112,7 @@ namespace MyBlogCore
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
