@@ -1,4 +1,5 @@
-﻿using Blog.Core.Services;
+﻿using Blog.Core.Model;
+using Blog.Core.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,7 +9,7 @@ namespace MyBlogCore
     [ApiController]
     public class BaseController : ControllerBase
     {
-        //public  IStudentService _studentService { get; set; }
+        public IStudentService _studentService { get; set; }
         //public BaseController(IStudentService studentService)
         //{
         //    _studentService = studentService;
@@ -24,6 +25,15 @@ namespace MyBlogCore
             return "QWE0";
 
             //return _studentService.GetTest();
+        }
+        [HttpPost]
+        /// <summary>
+        /// Post 请求
+        /// </summary>
+        /// <param name="model"></param>
+        public void PostTest(TestModel model)
+        {
+
         }
 
     }

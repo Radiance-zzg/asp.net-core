@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Blog.Core.Entities</name>
+    </assembly>
+    <members>
+        <member name="T:Blog.Core.Entities.Student">
+             <summary>
+             
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.Student.ID">
+             <summary>
+              
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.Student.StudentName">
+             <summary>
+              
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.Student.IDCard">
+             <summary>
+              
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.Student.Sex">
+             <summary>
+              
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.Student.BirthDay">
+             <summary>
+              
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.Student.UserPic">
+             <summary>
+              
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.Student.NativePlace">
+             <summary>
+              
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.Student.Education">
+             <summary>
+              
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.Student.WorkAge">
+             <summary>
+              
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.Student.IntoDate">
+             <summary>
+              
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.Student.WorkUnit">
+             <summary>
+             工作单位 
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.Student.UpdateTime">
+             <summary>
+              
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.Student.Email">
+             <summary>
+              
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.Student.PhoneNum">
+             <summary>
+              
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.Student.Occupation">
+             <summary>
+              
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.Student.DataSource">
+             <summary>
+              
+            </summary>
+        </member>
+    </members>
+</doc>

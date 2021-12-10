@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyBlogCore</name>
+    </assembly>
+    <members>
+        <member name="M:MyBlogCore.AutofacConfig.ConfigureAutofac.GetAssemblyByName(System.String)">
+            <summary>
+            根据程序集名称获取程序集
+            </summary>
+            <param name="assemblyName">程序集名称</param>
+        </member>
+        <member name="M:MyBlogCore.BaseController.GetTest">
+            <summary>
+            测试
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

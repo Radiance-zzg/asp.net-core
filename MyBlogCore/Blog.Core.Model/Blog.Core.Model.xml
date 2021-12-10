@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Blog.Core.Model</name>
+    </assembly>
+    <members>
+        <member name="P:Blog.Core.Model.TestModel.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Model.TestModel.Age">
+            <summary>
+            年龄
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Model.ViewModel.PageModel`1.PageIndex">
+            <summary>
+            当前页
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Model.ViewModel.PageModel`1.PageSize">
+            <summary>
+            页码
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Model.ViewModel.PageModel`1.PageCounet">
+            <summary>
+            总页数
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Model.ViewModel.PageModel`1.Total">
+            <summary>
+            总数据
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Model.ViewModel.PageModel`1.Data">
+            <summary>
+            数据
+            </summary>
+        </member>
+    </members>
+</doc>
