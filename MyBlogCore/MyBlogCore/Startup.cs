@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using MyBlogCore.AutofacConfig;
+using Swashbuckle.AspNetCore.Filters;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -29,7 +30,7 @@ namespace MyBlogCore
         {
             Configuration = configuration;
             _hostEnvironment = hostEnvironment;
-           
+
             _jWTTokenOptions = Configuration.GetSection("JWTTokenOptions").Get<JWTTokenOptions>(); ;
         }
 
@@ -51,6 +52,18 @@ namespace MyBlogCore
                     //Contact = new OpenApiContact { Name = apiName, Email = "2334344234@163.com" },//编辑联系方式
                     License = new OpenApiLicense { Name = apiName }//编辑许可证
                 });
+
+                options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                {
+                    Description = "JWT授权(数据将在请求头中进行传递)直接在下面框中输入Bearer {token}(注意两者之间是一个空格) \"",
+                    Name = "Authorization",//jwt默认的参数名称
+                    In = ParameterLocation.Header,//jwt默认存放Authorization信息的位置(请求头中)
+                    Type = SecuritySchemeType.ApiKey,
+                    BearerFormat = "JWT",
+                    Scheme = "Bearer"
+                });
+                options.OperationFilter<AddResponseHeadersFilter>();
+                options.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
                 options.OrderActionsBy(o => o.RelativePath);
                 options.IncludeXmlComments(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "MyBlogCore.xml"), true); // 把接口文档的路径配置进去。第二个参数表示的是是否开启包含对Controller的注释容纳【第二个参数可以不加】
                 options.IncludeXmlComments(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Blog.Core.Model.xml"), true);
@@ -63,23 +76,29 @@ namespace MyBlogCore
                         {
                             ValidateIssuer = true,//验证颁发者
                             ValidateAudience = true,//验证所有者
-                            ValidateLifetime = true,//验证有效期
+                            ValidateLifetime = true,//开启有效期验证
                             ValidateIssuerSigningKey = true,//验证秘钥
                             ValidAudience = _jWTTokenOptions.Audience,
                             ValidIssuer = _jWTTokenOptions.IisUer,
                             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jWTTokenOptions.SecretKey)),
-                            //可拓展验证因为是委托
-                            AudienceValidator = (m, s, n) => {
+                            ////可拓展验证因为是委托
+                            //AudienceValidator = (m, s, n) =>
+                            //{
 
-                                return true;
-                            },
-                            //可拓展验证因为是委托
-                            LifetimeValidator = (b, e, s, v) => {
-
-                                return true;
+                            //    return true;
+                            //},
+                            ////可拓展验证因为是委托
+                            LifetimeValidator = (b, e, s, v) =>
+                            {
+                                DateTime expires;
+                                if (DateTime.TryParse(e.ToString(), out expires) && expires >= DateTime.Now)
+                                {
+                                    return true;
+                                }
+                                return false;
                             }
                         };
-                       
+
                     });
             services.AddRazorPages();
         }
