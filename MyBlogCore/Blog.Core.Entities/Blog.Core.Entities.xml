@@ -89,5 +89,35 @@
               
             </summary>
         </member>
+        <member name="T:Blog.Core.Entities.User">
+             <summary>
+             
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.User.Id">
+             <summary>
+              
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.User.UserName">
+             <summary>
+             用户名
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.User.UserPwd">
+             <summary>
+              密码
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.User.Phone">
+             <summary>
+              手机号
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.User.IsDelete">
+             <summary>
+              
+            </summary>
+        </member>
     </members>
 </doc>

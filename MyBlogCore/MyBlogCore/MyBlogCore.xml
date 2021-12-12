@@ -10,15 +10,99 @@
             </summary>
             <param name="assemblyName">程序集名称</param>
         </member>
-        <member name="M:MyBlogCore.BaseController.GetTest">
+        <member name="M:MyBlogCore.HomeCenterController.Getauth">
+            <summary> 
+            测试授权
+            </summary>
+        </member>
+        <member name="M:MyBlogCore.UserController.AddUser(Blog.Core.Entities.User)">
             <summary>
-            测试
+            新增 已测试
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyBlogCore.UserController.AddUserAsync(Blog.Core.Entities.User)">
+            <summary>
+            新增 已测试
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyBlogCore.UserController.BulkCopy(System.Collections.Generic.List{Blog.Core.Entities.User})">
+            <summary>
+            批量新增 已测试
+            </summary>
+            <param name="entities"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyBlogCore.UserController.BulkCopyAsync(System.Collections.Generic.List{Blog.Core.Entities.User})">
+             <summary>
+            批量新增 已测试
+             </summary>
+             <param name="entities"></param>
+             <returns></returns>
+        </member>
+        <member name="M:MyBlogCore.UserController.DeleteUser">
+            <summary>
+            根据实体删除 已测试
             </summary>
             <returns></returns>
         </member>
-        <member name="M:MyBlogCore.HomeCenterController.Getauth">
+        <member name="M:MyBlogCore.UserController.DeleteUserByLambda">
             <summary>
-            测试授权
+            根据表达式删除 已测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MyBlogCore.UserController.DeleteBatchUser">
+            <summary>
+            根据表达式删除 已测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MyBlogCore.UserController.DeleteIsLogicEntityById">
+            <summary>
+            根据Id逻辑删除 已测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MyBlogCore.UserController.DeleteIsLogicEntityByWhere">
+            <summary>
+            根据表达式逻辑删除 已测试
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MyBlogCore.UserController.GetAllList">
+            <summary>
+            获取所有
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MyBlogCore.UserController.GetListByWhreAsync">
+            <summary>
+            根据表达式获取
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:MyBlogCore.Model.ReturnModel`1.Success">
+            <summary>
+            是否成功
+            </summary>
+        </member>
+        <member name="P:MyBlogCore.Model.ReturnModel`1.Data">
+            <summary>
+            返回数据类型
+            </summary>
+        </member>
+        <member name="P:MyBlogCore.Model.ReturnModel`1.Code">
+            <summary>
+            自定义code
+            </summary>
+        </member>
+        <member name="P:MyBlogCore.Model.ReturnModel`1.Msg">
+            <summary>
+            信息
             </summary>
         </member>
     </members>

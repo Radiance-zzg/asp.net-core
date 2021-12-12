@@ -17,24 +17,31 @@ namespace Blog.Core.Services.Base
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        public bool AddEntity(TEntity entity);
-        public Task<bool> AddEntityAsync(TEntity entity);
+        bool AddEntity(TEntity entity);
+        Task<bool> AddEntityAsync(TEntity entity);
         /// <summary>
         /// 批量新增
         /// </summary>
         /// <param name=""></param>
         /// <returns></returns>
-        public bool BulkCopy(List<TEntity> entities);
-        public Task<bool> BulkCopyAsync(List<TEntity> entities);
+        bool BulkCopy(List<TEntity> entities);
+        Task<bool> BulkCopyAsync(List<TEntity> entities);
         #endregion
         #region 删除
-        public bool DeleteEntity(TEntity entity);
-        public bool DeleteEntityList(List<TEntity> entities);
-        public bool DeleteEntityByWhere(Expression<Func<TEntity, bool>> expression);
+        bool DeleteEntity(TEntity entity);
+        bool DeleteEntityList(List<TEntity> entities);
+        bool DeleteEntityByWhere(Expression<Func<TEntity, bool>> expression);
+        bool DeleteIsLogicEntityById(int Id);
+        /// <summary>
+        /// 逻辑删除表达式
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        bool DeleteIsLogicEntityByWhere(Expression<Func<TEntity, bool>> expression);
         #endregion
         #region 更新Model
-        Task<bool> UpdateAsync(TEntity model);
-        Task<bool> UpdateListAsync(List<TEntity> entities);
+        bool UpdateAsync(TEntity model);
+        bool UpdateListAsync(List<TEntity> entities);
         #endregion
         //查询
         #region

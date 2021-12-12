@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Blog.Core.Services
+namespace Blog.Core.Repository.IRepository
 {
-    public interface IStudentService
+    internal interface IStudentRepostitory
     {
         public string GetTest();
-
+        
     }
 }

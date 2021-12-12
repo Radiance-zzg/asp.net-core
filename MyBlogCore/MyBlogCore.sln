@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Core.Entities", "Blog.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Core.Services", "Blog.Core.Services\Blog.Core.Services.csproj", "{13E266C9-BAC8-457A-B95E-B47B9EC300D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Blog.Core..JWT.Authorization.Center", "Blog.Core.JWT.Authorization.Center\Blog.Core..JWT.Authorization.Center.csproj", "{F7919199-2CB5-43E7-AE44-EBE680A580FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Blog.Core.JWT.Authorization.Center", "Blog.Core.JWT.Authorization.Center\Blog.Core.JWT.Authorization.Center.csproj", "{F7919199-2CB5-43E7-AE44-EBE680A580FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -12,7 +12,7 @@ namespace Blog.Core.Services.Base
 {
     public class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class, new()
     {
-        public readonly BaseRepositroy<TEntity> _baseRepositroy;
+        public IBaseRepository<TEntity> _baseRepositroy { get; set; }
         /// <summary>
         /// 添加实体
         /// </summary>
@@ -83,6 +83,25 @@ namespace Blog.Core.Services.Base
             return _baseRepositroy.DeleteEntityList(entities);
         }
         /// <summary>
+        /// 根据ID逻辑删除
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public bool DeleteIsLogicEntityById(int Id)
+        {
+            return _baseRepositroy.DeleteIsLogicEntityById(Id);
+        }
+        /// <summary>
+        /// 根据表达式逻辑删除
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public bool DeleteIsLogicEntityByWhere(Expression<Func<TEntity, bool>> expression)
+        {
+            return _baseRepositroy.DeleteIsLogicEntityByWhere(expression);
+        }
+
+        /// <summary>
         /// 获取所有数据
         /// </summary>
         /// <returns></returns>
@@ -137,18 +156,18 @@ namespace Blog.Core.Services.Base
         /// <param name="model"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
-        public async Task<bool> UpdateAsync(TEntity model)
+        public  bool UpdateAsync(TEntity model)
         {
-            return await _baseRepositroy.UpdateAsync(model);
+            return  _baseRepositroy.UpdateAsync(model);
         }
         /// <summary>
         /// 批量修改数据
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
-        public async Task<bool> UpdateListAsync(List<TEntity> entities)
+        public  bool UpdateListAsync(List<TEntity> entities)
         {
-            return await _baseRepositroy.UpdateListAsync(entities);
+            return  _baseRepositroy.UpdateListAsync(entities);
         }
     }
 }

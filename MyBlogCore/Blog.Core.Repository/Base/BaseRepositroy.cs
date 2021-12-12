@@ -14,16 +14,14 @@ namespace Blog.Core.Repository.Base
 
         public IUnitOfWork _unitOfWork { get; set; }
 
-
-
         //public BaseRepositroy(IUnitOfWork unitOfWork)
         //{
         //    _unitOfWork = unitOfWork;
-        //}
-
+        //}   
         public SqlSugarScope Db => _unitOfWork.GetDB();
+        #region 新增
         /// <summary>
-        /// 添加
+        /// 添加(已验证)
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
@@ -62,6 +60,8 @@ namespace Blog.Core.Repository.Base
             var result = await Db.Insertable(entities).ExecuteCommandAsync();
             return result >= 0;
         }
+        #endregion
+        #region 删除
         /// <summary>
         ///根据实体删除
         /// </summary>
@@ -85,10 +85,31 @@ namespace Blog.Core.Repository.Base
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
+        /// 
         public bool DeleteEntityList(List<TEntiy> entities)
         {
             return Db.Deleteable(entities).ExecuteCommand() > 0;
         }
+        /// <summary>
+        /// 逻辑删除
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public bool DeleteIsLogicEntityById(int Id)
+        {
+
+            return Db.Deleteable<TEntiy>().In(Id).IsLogic().ExecuteCommand() > 0;
+        }
+        /// <summary>
+        /// 逻辑删除表达式
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public bool DeleteIsLogicEntityByWhere(Expression<Func<TEntiy, bool>> expression)
+        {
+            return Db.Deleteable<TEntiy>().Where(expression).IsLogic().ExecuteCommand() > 0;
+        }
+        #endregion
         /// <summary>
         /// 查询所有信息
         /// </summary>
@@ -132,23 +153,25 @@ namespace Blog.Core.Repository.Base
         {
             return Db.SqlQueryable<TEntiy>(strSql);
         }
+         
+
         /// <summary>
         /// 单条修改
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public async Task<bool> UpdateAsync(TEntiy model)
+        public bool UpdateAsync(TEntiy model)
         {
-            return await Db.Updateable(model).ExecuteCommandHasChangeAsync();
+            return Db.Updateable(model).ExecuteCommandHasChange();
         }
         /// <summary>
         /// 批量修改
         /// </summary>
         /// <param name="entities"></param>
         /// <returns></returns>
-        public async Task<bool> UpdateListAsync(List<TEntiy> entities)
+        public bool UpdateListAsync(List<TEntiy> entities)
         {
-            return await Db.Updateable(entities).ExecuteCommandHasChangeAsync();
+            return Db.Updateable(entities).ExecuteCommandHasChange();
         }
     }
 

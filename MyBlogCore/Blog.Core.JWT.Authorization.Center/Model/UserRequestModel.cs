@@ -19,6 +19,10 @@ namespace Blog.Core.JWT.Authorization.Center.Model
         /// 密码
         /// </summary>
         public string UserPassWord { get; set; }
+        /// <summary>
+        /// 平台秘钥
+        /// </summary>
+        public string Secretkeykey { get; set; }
 
     }
 }

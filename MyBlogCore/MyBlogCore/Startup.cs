@@ -23,14 +23,13 @@ namespace MyBlogCore
 {
     public class Startup
     {
-        protected IHostEnvironment _hostEnvironment { get; }
+        protected IHostEnvironment _basehostEnvironment { get; }
         private JWTTokenOptions _jWTTokenOptions { set; get; }
-        public IConfiguration Configuration { get; }
+        private IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration, IHostEnvironment hostEnvironment)
         {
             Configuration = configuration;
-            _hostEnvironment = hostEnvironment;
-
+            _basehostEnvironment = hostEnvironment;
             _jWTTokenOptions = Configuration.GetSection("JWTTokenOptions").Get<JWTTokenOptions>(); ;
         }
 
@@ -40,32 +39,27 @@ namespace MyBlogCore
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddSqlsugarSetup(Configuration);
-            services.AddControllers().AddControllersAsServices();
+            services.AddSqlsugarSetup(Configuration);       
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
                     Title = $"{apiName} 接口文档——dotnetcore 5.0",
-                    Description = $"{apiName} HTTP API V1",
-                    //Contact = new OpenApiContact { Name = apiName, Email = "2334344234@163.com" },//编辑联系方式
-                    License = new OpenApiLicense { Name = apiName }//编辑许可证
+                    Description = $"{apiName} HTTP API V1",             
+                    License = new OpenApiLicense { Name = apiName }
+                
                 });
-
+                options.OperationFilter<SecurityRequirementsOperationFilter>();
                 options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
                 {
-                    Description = "JWT授权(数据将在请求头中进行传递)直接在下面框中输入Bearer {token}(注意两者之间是一个空格) \"",
-                    Name = "Authorization",//jwt默认的参数名称
-                    In = ParameterLocation.Header,//jwt默认存放Authorization信息的位置(请求头中)
-                    Type = SecuritySchemeType.ApiKey,
-                    BearerFormat = "JWT",
-                    Scheme = "Bearer"
+                    Description = "JWT授权(数据将在请求头中进行传输) 直接在下框中输入Bearer {token}（注意两者之间是一个空格）\"",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey
                 });
-                options.OperationFilter<AddResponseHeadersFilter>();
-                options.OperationFilter<AppendAuthorizeToSummaryOperationFilter>();
                 options.OrderActionsBy(o => o.RelativePath);
-                options.IncludeXmlComments(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "MyBlogCore.xml"), true); // 把接口文档的路径配置进去。第二个参数表示的是是否开启包含对Controller的注释容纳【第二个参数可以不加】
+                options.IncludeXmlComments(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "MyBlogCore.xml"), true); 
                 options.IncludeXmlComments(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Blog.Core.Model.xml"), true);
                 options.IncludeXmlComments(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Blog.Core.Entities.xml"), true);
             });
@@ -74,20 +68,13 @@ namespace MyBlogCore
                     {
                         options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
                         {
-                            ValidateIssuer = true,//验证颁发者
-                            ValidateAudience = true,//验证所有者
-                            ValidateLifetime = true,//开启有效期验证
-                            ValidateIssuerSigningKey = true,//验证秘钥
+                            ValidateIssuer = true,
+                            ValidateAudience = true,
+                            ValidateLifetime = true,
+                            ValidateIssuerSigningKey = true,
                             ValidAudience = _jWTTokenOptions.Audience,
                             ValidIssuer = _jWTTokenOptions.IisUer,
-                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jWTTokenOptions.SecretKey)),
-                            ////可拓展验证因为是委托
-                            //AudienceValidator = (m, s, n) =>
-                            //{
-
-                            //    return true;
-                            //},
-                            ////可拓展验证因为是委托
+                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jWTTokenOptions.SecretKey)),                         
                             LifetimeValidator = (b, e, s, v) =>
                             {
                                 DateTime expires;
@@ -100,6 +87,7 @@ namespace MyBlogCore
                         };
 
                     });
+            services.AddControllers().AddControllersAsServices();
             services.AddRazorPages();
         }
         public void ConfigureContainer(ContainerBuilder containerBuilder)
@@ -133,22 +121,10 @@ namespace MyBlogCore
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapRazorPages();
-                endpoints.MapControllerRoute(
-                   name: "default-api",
-                   pattern: "api/{controller=Home}/{action=Index}/{id?}");
-
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers();
             });
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapControllers();
-            //});
         }
     }
 }
