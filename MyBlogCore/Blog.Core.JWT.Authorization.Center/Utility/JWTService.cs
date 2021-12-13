@@ -31,7 +31,6 @@ namespace Blog.Core.JWT.Authorization.Center.Utility
                  new Claim("phone","15210221410"),
                  new Claim("scope","All")
             };
-
                 var authSigningKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(Encoding.UTF8.GetBytes(_JWTTokenOptions.SecretKey));
                 SigningCredentials credentials = new SigningCredentials(authSigningKey, SecurityAlgorithms.HmacSha256);
                 //生产token

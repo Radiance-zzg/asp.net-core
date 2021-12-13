@@ -147,15 +147,15 @@ namespace MyBlogCore
             var result = await _userService.GetListByWhreAsync(S => S.IsDelete == true);
             return new ReturnModel<List<User>> { Success = true, Data = result };
         }
-        /// <summary>
-        /// 分页获取
-        /// </summary>
-        /// <returns></returns>
-        [HttpPost, Route("GetListByWhreAsync")]
-        public async Task<ReturnModel<List<User>>> GetListByWhreAsync()
-        {
-            var result = await _userService.GetPageAsync(1, 2, null, null);
-            return new ReturnModel<List<User>> { Success = true, Data = result };
-        }
+        ///// <summary>
+        ///// 分页获取
+        ///// </summary>
+        ///// <returns></returns>
+        //[HttpPost, Route("GetListByWhreAsync")]
+        //public async Task<ReturnModel<List<User>>> GetListByWhreAsync()
+        //{
+        //    var result = await _userService.GetPageAsync(1, 2, null, null);
+        //    return new ReturnModel<List<User>> { Success = true, Data = result };
+        //}
     }
 }
