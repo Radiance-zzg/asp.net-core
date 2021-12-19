@@ -1,6 +1,9 @@
 using Autofac;
 using Blog.Core.Extensions.ServiceExtensions;
 using Blog.Core.Model;
+using Hangfire;
+using Hangfire.Dashboard.Dark;
+using Hangfire.SqlServer;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -39,16 +42,16 @@ namespace MyBlogCore
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddSqlsugarSetup(Configuration);       
+            services.AddSqlsugarSetup(Configuration);
             services.AddSwaggerGen(options =>
             {
                 options.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
                     Title = $"{apiName} ½Ó¿ÚÎÄµµ¡ª¡ªdotnetcore 5.0",
-                    Description = $"{apiName} HTTP API V1",             
+                    Description = $"{apiName} HTTP API V1",
                     License = new OpenApiLicense { Name = apiName }
-                
+
                 });
                 options.OperationFilter<SecurityRequirementsOperationFilter>();
                 options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
@@ -59,7 +62,7 @@ namespace MyBlogCore
                     Type = SecuritySchemeType.ApiKey
                 });
                 options.OrderActionsBy(o => o.RelativePath);
-                options.IncludeXmlComments(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "MyBlogCore.xml"), true); 
+                options.IncludeXmlComments(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "MyBlogCore.xml"), true);
                 options.IncludeXmlComments(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Blog.Core.Model.xml"), true);
                 options.IncludeXmlComments(Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Blog.Core.Entities.xml"), true);
             });
@@ -74,7 +77,7 @@ namespace MyBlogCore
                             ValidateIssuerSigningKey = true,
                             ValidAudience = _jWTTokenOptions.Audience,
                             ValidIssuer = _jWTTokenOptions.IisUer,
-                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jWTTokenOptions.SecretKey)),                         
+                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jWTTokenOptions.SecretKey)),
                             LifetimeValidator = (b, e, s, v) =>
                             {
                                 DateTime expires;
@@ -88,6 +91,21 @@ namespace MyBlogCore
 
                     });
             services.AddControllers().AddControllersAsServices();
+            services.AddHangfire(configuration => configuration
+                                .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+                                .UseSimpleAssemblyNameTypeSerializer()
+                                .UseRecommendedSerializerSettings()
+                                .UseSqlServerStorage(Configuration.GetConnectionString("SqlServer"), new SqlServerStorageOptions
+                                {
+                                    CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
+                                    SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
+                                    QueuePollInterval = TimeSpan.Zero,
+                                    UseRecommendedIsolationLevel = false,
+                                    DisableGlobalLocks = true
+                                })
+                                .UseDarkDashboard()
+                                ); ;
+            services.AddHangfireServer();
             services.AddRazorPages();
         }
         public void ConfigureContainer(ContainerBuilder containerBuilder)
@@ -106,6 +124,9 @@ namespace MyBlogCore
                     options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
                     options.RoutePrefix = string.Empty;
                 });
+                //app.UseHangfireDashboard();
+                //app.UseDarkDashboard();
+                GlobalConfiguration.Configuration.UseDarkDashboard();
                 //app.UseSwaggerUI(optins => { optins.  });
             }
             else
@@ -124,6 +145,7 @@ namespace MyBlogCore
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHangfireDashboard();
             });
         }
     }

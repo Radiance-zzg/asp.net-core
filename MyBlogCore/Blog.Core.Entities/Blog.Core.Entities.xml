@@ -119,5 +119,30 @@
               
             </summary>
         </member>
+        <member name="T:Blog.Core.Entities.UserType">
+             <summary>
+             
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.UserType.TypeName">
+             <summary>
+              
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.UserType.Level">
+             <summary>
+              
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.UserType.CityId">
+             <summary>
+              
+            </summary>
+        </member>
+        <member name="P:Blog.Core.Entities.UserType.Isdelete">
+             <summary>
+              
+            </summary>
+        </member>
     </members>
 </doc>
