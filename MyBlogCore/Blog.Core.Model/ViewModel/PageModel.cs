@@ -23,7 +23,7 @@ namespace Blog.Core.Model.ViewModel
         /// <summary>
         /// 总页数
         /// </summary>
-        public int PageCounet { get; set; }
+        public int PageCounet => (int)System.Math.Floor((decimal)Total / PageSize);
         /// <summary>
         /// 总数据
         /// </summary>

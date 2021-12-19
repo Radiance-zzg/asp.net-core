@@ -139,7 +139,7 @@ namespace Blog.Core.Repository.Base
         {
             RefAsync<int> total = 0;
             var result = await Db.Queryable<TEntiy>().Where(expression).OrderBy(strshortByFileds).ToPageListAsync(PageIndex, PageSize, total);
-            return new PageModel<TEntiy> { Data = result, Total = total, PageIndex = PageIndex, PageSize = PageSize, PageCounet = (int)System.Math.Ceiling((decimal)total / PageSize) };
+            return new PageModel<TEntiy> { Data = result, Total = total, PageIndex = PageIndex, PageSize = PageSize };
         }
         /// <summary>
         /// 获取queryable

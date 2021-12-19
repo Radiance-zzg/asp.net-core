@@ -7,8 +7,8 @@ namespace Blog.Core.Entities
     /// <summary>
     /// 
     ///</summary>
-    [SugarTable("User")]
-    public class User
+    [SugarTable("Department")]
+    public class Department
     {
         /// <summary>
         ///  
@@ -18,27 +18,22 @@ namespace Blog.Core.Entities
         /// <summary>
         ///  
         ///</summary>
-         [SugarColumn(ColumnName="UserName"    )]
-         public string UserName { get; set; }
+         [SugarColumn(ColumnName="DepartmentName"    )]
+         public string DepartmentName { get; set; }
         /// <summary>
         ///  
         ///</summary>
-         [SugarColumn(ColumnName="UserPwd"    )]
-         public string UserPwd { get; set; }
+         [SugarColumn(ColumnName="DepartmentCode"    )]
+         public string DepartmentCode { get; set; }
         /// <summary>
         ///  
         ///</summary>
-         [SugarColumn(ColumnName="Phone"    )]
-         public string Phone { get; set; }
+         [SugarColumn(ColumnName="Parent"    )]
+         public int? Parent { get; set; }
         /// <summary>
         ///  
         ///</summary>
-         [SugarColumn(ColumnName="IsDelete"    )]
-         public bool IsDelete { get; set; }
-        /// <summary>
-        ///  
-        ///</summary>
-         [SugarColumn(ColumnName="departmentId"    )]
-         public int? DepartmentId { get; set; }
+         [SugarColumn(ColumnName="Isdelete"    )]
+         public bool? Isdelete { get; set; }
     }
 }

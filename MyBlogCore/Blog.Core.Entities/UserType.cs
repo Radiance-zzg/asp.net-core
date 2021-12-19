@@ -23,8 +23,8 @@ namespace Blog.Core.Entities
         /// <summary>
         ///  
         ///</summary>
-         [SugarColumn(ColumnName="CityId"    )]
-         public string CityId { get; set; }
+         [SugarColumn(ColumnName="UserId"    )]
+         public string UserId { get; set; }
         /// <summary>
         ///  
         ///</summary>

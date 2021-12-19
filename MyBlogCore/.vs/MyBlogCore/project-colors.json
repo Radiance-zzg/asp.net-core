@@ -45,7 +45,12 @@
       "ProjectGuid": "13e266c9-bac8-457a-b95e-b47b9ec300d2",
       "DisplayName": "Blog.Core.Services",
       "ColorIndex": 7
+    },
+    "f7919199-2cb5-43e7-ae44-ebe680a580ff": {
+      "ProjectGuid": "f7919199-2cb5-43e7-ae44-ebe680a580ff",
+      "DisplayName": "Blog.Core.JWT.Authorization.Center",
+      "ColorIndex": 8
     }
   },
-  "NextColorIndex": 8
+  "NextColorIndex": 9
 }
