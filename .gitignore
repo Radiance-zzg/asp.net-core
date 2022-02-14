@@ -25,3 +25,15 @@
 /MyBlogCore/MyBlogCore/net5.0
 /MyBlogCore/Blog.Core.JWT.Authorization.Center/bin/Debug/net5.0
 /MyBlogCore/Blog.Core.JWT.Authorization.Center/obj
+/MyBlogCore/Blog,Core.Common/bin/Release/net5.0/ref
+/MyBlogCore/Blog,Core.Common/bin/Release/net5.0
+/MyBlogCore/Blog.Core.Entities/bin/Release/net5.0
+/MyBlogCore/Blog.Core.Expansion/bin/Release/net5.0/ref
+/MyBlogCore/Blog.Core.Expansion/bin/Release/net5.0
+/MyBlogCore/Blog.Core.Model/bin/Release/net5.0
+/MyBlogCore/Blog.Core.Repository/bin/Release/net5.0/ref
+/MyBlogCore/Blog.Core.Repository/bin/Release/net5.0
+/MyBlogCore/Blog.Core.Services/bin/Release/net5.0
+/MyBlogCore/MyBlogCore/bin/Release/net5.0
+*.pubxml
+*.user

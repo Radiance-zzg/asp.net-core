@@ -17,8 +17,8 @@ namespace Blog.Core.Extensions.ServiceExtensions
         {
             SqlSugarScope sqlSugar = new SqlSugarScope(new ConnectionConfig()
             {
-                DbType = SqlSugar.DbType.SqlServer,
-                ConnectionString = configuration.GetConnectionString("SqlServer"),
+                DbType = SqlSugar.DbType.MySql,
+                ConnectionString = configuration.GetConnectionString("MySQL"),
                 IsAutoCloseConnection = true,
             },
                 db =>
